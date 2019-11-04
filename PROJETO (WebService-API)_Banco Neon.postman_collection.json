@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "4eb7a256-1fe0-423f-ab0c-fc2556448a46",
+		"name": "PROJETO (WebService/API)_Banco Neon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Campo title ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "501589e3-4648-4fb9-b3cc-358d3a9972df",
+						"exec": [
+							"tests[\"Validar resposta da requisição\"] = (responseCode.code === 200);",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"jsonData.results.forEach(function(filme) {",
+							"   var titulo = filme.title;",
+							"   tests[titulo] = (titulo !== '');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://swapi.co/api/films/",
+					"protocol": "http",
+					"host": [
+						"swapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"films",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Campo count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1007fe6f-f1ac-43df-a70c-5bc5a1243642",
+						"exec": [
+							"tests[\"Mensagem exibida\"] = (responseCode.code === 200);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "93676320-e38c-41f5-b70a-deafa4ffb673",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.co/api/planets/",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"planets",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Campo count",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://swapi.co/api/planets/",
+							"protocol": "https",
+							"host": [
+								"swapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"planets",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 30 Oct 2019 20:21:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"394d177de8df8accc41f9427b749ef4a\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "52e018cb9c93ea45-IAD"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 61,\n    \"next\": \"https://swapi.co/api/planets/?page=2\",\n    \"previous\": null,\n    \"results\": [\n        {\n            \"name\": \"Alderaan\",\n            \"rotation_period\": \"24\",\n            \"orbital_period\": \"364\",\n            \"diameter\": \"12500\",\n            \"climate\": \"temperate\",\n            \"gravity\": \"1 standard\",\n            \"terrain\": \"grasslands, mountains\",\n            \"surface_water\": \"40\",\n            \"population\": \"2000000000\",\n            \"residents\": [\n                \"https://swapi.co/api/people/5/\",\n                \"https://swapi.co/api/people/68/\",\n                \"https://swapi.co/api/people/81/\"\n            ],\n            \"films\": [\n                \"https://swapi.co/api/films/6/\",\n                \"https://swapi.co/api/films/1/\"\n            ],\n            \"created\": \"2014-12-10T11:35:48.479000Z\",\n            \"edited\": \"2014-12-20T20:58:18.420000Z\",\n            \"url\": \"https://swapi.co/api/planets/2/\"\n        },\n        {\n            \"name\": \"Yavin IV\",\n            \"rotation_period\": \"24\",\n            \"orbital_period\": \"4818\",\n            \"diameter\": \"10200\",\n            \"climate\": \"temperate, tropical\",\n            \"gravity\": \"1 standard\",\n            \"terrain\": \"jungle, rainforests\",\n            \"surface_water\": \"8\",\n            \"population\": \"1000\",\n            \"residents\": [],\n            \"films\": [\n                \"https://swapi.co/api/films/1/\"\n            ],\n            \"created\": \"2014-12-10T11:37:19.144000Z\",\n            \"edited\": \"2014-12-20T20:58:18.421000Z\",\n            \"url\": \"https://swapi.co/api/planets/3/\"\n        },\n        {\n            \"name\": \"Hoth\",\n            \"rotation_period\": \"23\",\n            \"orbital_period\": \"549\",\n            \"diameter\": \"7200\",\n            \"climate\": \"frozen\",\n            \"gravity\": \"1.1 standard\",\n            \"terrain\": \"tundra, ice caves, mountain ranges\",\n            \"surface_water\": \"100\",\n            \"population\": \"unknown\",\n            \"residents\": [],\n            \"films\": [\n                \"https://swapi.co/api/films/2/\"\n            ],\n            \"created\": \"2014-12-10T11:39:13.934000Z\",\n            \"edited\": \"2014-12-20T20:58:18.423000Z\",\n            \"url\": \"https://swapi.co/api/planets/4/\"\n        },\n        {\n            \"name\": \"Dagobah\",\n            \"rotation_period\": \"23\",\n            \"orbital_period\": \"341\",\n            \"diameter\": \"8900\",\n            \"climate\": \"murky\",\n            \"gravity\": \"N/A\",\n            \"terrain\": \"swamp, jungles\",\n            \"surface_water\": \"8\",\n            \"population\": \"unknown\",\n            \"residents\": [],\n            \"films\": [\n                \"https://swapi.co/api/films/2/\",\n                \"https://swapi.co/api/films/6/\",\n                \"https://swapi.co/api/films/3/\"\n            ],\n            \"created\": \"2014-12-10T11:42:22.590000Z\",\n            \"edited\": \"2014-12-20T20:58:18.425000Z\",\n            \"url\": \"https://swapi.co/api/planets/5/\"\n        },\n        {\n            \"name\": \"Bespin\",\n            \"rotation_period\": \"12\",\n            \"orbital_period\": \"5110\",\n            \"diameter\": \"118000\",\n            \"climate\": \"temperate\",\n            \"gravity\": \"1.5 (surface), 1 standard (Cloud City)\",\n            \"terrain\": \"gas giant\",\n            \"surface_water\": \"0\",\n            \"population\": \"6000000\",\n            \"residents\": [\n                \"https://swapi.co/api/people/26/\"\n            ],\n            \"films\": [\n                \"https://swapi.co/api/films/2/\"\n            ],\n            \"created\": \"2014-12-10T11:43:55.240000Z\",\n            \"edited\": \"2014-12-20T20:58:18.427000Z\",\n            \"url\": \"https://swapi.co/api/planets/6/\"\n        },\n        {\n            \"name\": \"Endor\",\n            \"rotation_period\": \"18\",\n            \"orbital_period\": \"402\",\n            \"diameter\": \"4900\",\n            \"climate\": \"temperate\",\n            \"gravity\": \"0.85 standard\",\n            \"terrain\": \"forests, mountains, lakes\",\n            \"surface_water\": \"8\",\n            \"population\": \"30000000\",\n            \"residents\": [\n                \"https://swapi.co/api/people/30/\"\n            ],\n            \"films\": [\n                \"https://swapi.co/api/films/3/\"\n            ],\n            \"created\": \"2014-12-10T11:50:29.349000Z\",\n            \"edited\": \"2014-12-20T20:58:18.429000Z\",\n            \"url\": \"https://swapi.co/api/planets/7/\"\n        },\n        {\n            \"name\": \"Naboo\",\n            \"rotation_period\": \"26\",\n            \"orbital_period\": \"312\",\n            \"diameter\": \"12120\",\n            \"climate\": \"temperate\",\n            \"gravity\": \"1 standard\",\n            \"terrain\": \"grassy hills, swamps, forests, mountains\",\n            \"surface_water\": \"12\",\n            \"population\": \"4500000000\",\n            \"residents\": [\n                \"https://swapi.co/api/people/3/\",\n                \"https://swapi.co/api/people/21/\",\n                \"https://swapi.co/api/people/36/\",\n                \"https://swapi.co/api/people/37/\",\n                \"https://swapi.co/api/people/38/\",\n                \"https://swapi.co/api/people/39/\",\n                \"https://swapi.co/api/people/42/\",\n                \"https://swapi.co/api/people/60/\",\n                \"https://swapi.co/api/people/61/\",\n                \"https://swapi.co/api/people/66/\",\n                \"https://swapi.co/api/people/35/\"\n            ],\n            \"films\": [\n                \"https://swapi.co/api/films/5/\",\n                \"https://swapi.co/api/films/4/\",\n                \"https://swapi.co/api/films/6/\",\n                \"https://swapi.co/api/films/3/\"\n            ],\n            \"created\": \"2014-12-10T11:52:31.066000Z\",\n            \"edited\": \"2014-12-20T20:58:18.430000Z\",\n            \"url\": \"https://swapi.co/api/planets/8/\"\n        },\n        {\n            \"name\": \"Coruscant\",\n            \"rotation_period\": \"24\",\n            \"orbital_period\": \"368\",\n            \"diameter\": \"12240\",\n            \"climate\": \"temperate\",\n            \"gravity\": \"1 standard\",\n            \"terrain\": \"cityscape, mountains\",\n            \"surface_water\": \"unknown\",\n            \"population\": \"1000000000000\",\n            \"residents\": [\n                \"https://swapi.co/api/people/34/\",\n                \"https://swapi.co/api/people/55/\",\n                \"https://swapi.co/api/people/74/\"\n            ],\n            \"films\": [\n                \"https://swapi.co/api/films/5/\",\n                \"https://swapi.co/api/films/4/\",\n                \"https://swapi.co/api/films/6/\",\n                \"https://swapi.co/api/films/3/\"\n            ],\n            \"created\": \"2014-12-10T11:54:13.921000Z\",\n            \"edited\": \"2014-12-20T20:58:18.432000Z\",\n            \"url\": \"https://swapi.co/api/planets/9/\"\n        },\n        {\n            \"name\": \"Kamino\",\n            \"rotation_period\": \"27\",\n            \"orbital_period\": \"463\",\n            \"diameter\": \"19720\",\n            \"climate\": \"temperate\",\n            \"gravity\": \"1 standard\",\n            \"terrain\": \"ocean\",\n            \"surface_water\": \"100\",\n            \"population\": \"1000000000\",\n            \"residents\": [\n                \"https://swapi.co/api/people/22/\",\n                \"https://swapi.co/api/people/72/\",\n                \"https://swapi.co/api/people/73/\"\n            ],\n            \"films\": [\n                \"https://swapi.co/api/films/5/\"\n            ],\n            \"created\": \"2014-12-10T12:45:06.577000Z\",\n            \"edited\": \"2014-12-20T20:58:18.434000Z\",\n            \"url\": \"https://swapi.co/api/planets/10/\"\n        },\n        {\n            \"name\": \"Geonosis\",\n            \"rotation_period\": \"30\",\n            \"orbital_period\": \"256\",\n            \"diameter\": \"11370\",\n            \"climate\": \"temperate, arid\",\n            \"gravity\": \"0.9 standard\",\n            \"terrain\": \"rock, desert, mountain, barren\",\n            \"surface_water\": \"5\",\n            \"population\": \"100000000000\",\n            \"residents\": [\n                \"https://swapi.co/api/people/63/\"\n            ],\n            \"films\": [\n                \"https://swapi.co/api/films/5/\"\n            ],\n            \"created\": \"2014-12-10T12:47:22.350000Z\",\n            \"edited\": \"2014-12-20T20:58:18.437000Z\",\n            \"url\": \"https://swapi.co/api/planets/11/\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Campo count 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a2e2fcb4-6686-47c4-86f8-6c6148b00978",
+						"exec": [
+							"tests[\"Mensagem exibida\"] = (responseCode.code === 404);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.co/api/planets/65",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"planets",
+						"65"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
